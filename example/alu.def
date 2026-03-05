@@ -1,0 +1,167 @@
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+
+DESIGN alu_top ;
+
+UNITS DISTANCE MICRONS 1000 ;
+
+DIEAREA ( 0 0 ) ( 200 200 ) ;
+
+##################################################
+# ROW DEFINITIONS
+##################################################
+
+ROW ROW_0 core 0 0 N DO 200 BY 1 STEP 1000 0 ;
+ROW ROW_1 core 0 2000 FS DO 200 BY 1 STEP 1000 0 ;
+ROW ROW_2 core 0 4000 N DO 200 BY 1 STEP 1000 0 ;
+ROW ROW_3 core 0 6000 FS DO 200 BY 1 STEP 1000 0 ;
+
+##################################################
+# TRACK DEFINITIONS
+##################################################
+
+TRACKS X 200 DO 200 STEP 1000 LAYER M1 ;
+TRACKS Y 200 DO 200 STEP 1000 LAYER M2 ;
+
+##################################################
+# IO PINS
+##################################################
+
+PINS 6 ;
+
+- A[0] + NET A[0]
+  + DIRECTION INPUT
+  + LAYER M2 ( 0 1000 ) ( 200 1200 )
+  + PLACED ( 0 1000 ) N ;
+
+- B[0] + NET B[0]
+  + DIRECTION INPUT
+  + LAYER M2 ( 0 2000 ) ( 200 2200 )
+  + PLACED ( 0 2000 ) N ;
+
+- opcode[0] + NET opcode[0]
+  + DIRECTION INPUT
+  + LAYER M2 ( 0 3000 ) ( 200 3200 )
+  + PLACED ( 0 3000 ) N ;
+
+- clk + NET clk
+  + DIRECTION INPUT
+  + LAYER M2 ( 0 4000 ) ( 200 4200 )
+  + PLACED ( 0 4000 ) N ;
+
+- rst + NET rst
+  + DIRECTION INPUT
+  + LAYER M2 ( 0 5000 ) ( 200 5200 )
+  + PLACED ( 0 5000 ) N ;
+
+- Y[0] + NET Y[0]
+  + DIRECTION OUTPUT
+  + LAYER M2 ( 199800 1000 ) ( 200000 1200 )
+  + PLACED ( 199800 1000 ) N ;
+
+END PINS
+
+##################################################
+# COMPONENTS
+##################################################
+
+COMPONENTS 20 ;
+
+- U_MULT MULT_MACRO
+  + PLACED ( 80000 80000 ) N ;
+
+- U_DIV DIV_MACRO
+  + PLACED ( 120000 80000 ) N ;
+
+- U_FA_0 FA_X1
+  + PLACED ( 10000 2000 ) N ;
+
+- U_FA_1 FA_X1
+  + PLACED ( 11000 2000 ) N ;
+
+- U_FA_2 FA_X1
+  + PLACED ( 12000 2000 ) N ;
+
+- U_FA_3 FA_X1
+  + PLACED ( 13000 2000 ) N ;
+
+- U_AND_0 AND2_X1
+  + PLACED ( 10000 4000 ) N ;
+
+- U_AND_1 AND2_X1
+  + PLACED ( 11000 4000 ) N ;
+
+- U_OR_0 OR2_X1
+  + PLACED ( 10000 6000 ) N ;
+
+- U_OR_1 OR2_X1
+  + PLACED ( 11000 6000 ) N ;
+
+- U_XOR_0 XOR2_X1
+  + PLACED ( 10000 8000 ) N ;
+
+- U_XOR_1 XOR2_X1
+  + PLACED ( 11000 8000 ) N ;
+
+- U_MUX_0 MUX4_X1
+  + PLACED ( 15000 10000 ) N ;
+
+- U_MUX_1 MUX4_X1
+  + PLACED ( 16000 10000 ) N ;
+
+- U_INV_0 INV_X1
+  + PLACED ( 14000 2000 ) N ;
+
+- U_INV_1 INV_X1
+  + PLACED ( 15000 2000 ) N ;
+
+- U_INV_2 INV_X1
+  + PLACED ( 16000 2000 ) N ;
+
+- U_INV_3 INV_X1
+  + PLACED ( 17000 2000 ) N ;
+
+- U_INV_4 INV_X1
+  + PLACED ( 18000 2000 ) N ;
+
+- U_INV_5 INV_X1
+  + PLACED ( 19000 2000 ) N ;
+
+END COMPONENTS
+
+##################################################
+# NETLIST CONNECTIONS
+##################################################
+
+NETS 10 ;
+
+- net_add0
+  ( U_FA_0 A )
+  ( U_FA_1 B )
+  ( U_MUX_0 A )
+;
+
+- net_add1
+  ( U_FA_1 CO )
+  ( U_FA_2 CI )
+;
+
+- net_logic0
+  ( U_AND_0 Y )
+  ( U_MUX_0 C )
+;
+
+- net_logic1
+  ( U_OR_0 Y )
+  ( U_MUX_0 D )
+;
+
+- net_mux0
+  ( U_MUX_0 Y )
+  ( Y[0] )
+;
+
+END NETS
+
+END DESIGN

@@ -1,0 +1,80 @@
+{
+  "design": "user_design",
+  "num_cells": 9,
+  "chip_width": 200.0,
+  "chip_height": 200.0,
+  "cells": [
+    {
+      "name": "for",
+      "type": "generate",
+      "predicted_x": 0.0,
+      "predicted_y": 1.0,
+      "global_x": 0.0,
+      "global_y": 0.0
+    },
+    {
+      "name": "for",
+      "type": "generate",
+      "predicted_x": 97.4,
+      "predicted_y": 1.0,
+      "global_x": 97.58249521255493,
+      "global_y": 0.0
+    },
+    {
+      "name": "for",
+      "type": "generate",
+      "predicted_x": 199.8,
+      "predicted_y": 1.0,
+      "global_x": 200.0,
+      "global_y": 0.0
+    },
+    {
+      "name": "for",
+      "type": "generate",
+      "predicted_x": 0.0,
+      "predicted_y": 91.0,
+      "global_x": 0.0,
+      "global_y": 90.09377956390381
+    },
+    {
+      "name": "U_OR",
+      "type": "OR2_X1",
+      "predicted_x": 100.60000000000001,
+      "predicted_y": 99.0,
+      "global_x": 100.6635069847107,
+      "global_y": 99.97875690460205
+    },
+    {
+      "name": "U_XOR",
+      "type": "XOR2_X1",
+      "predicted_x": 199.8,
+      "predicted_y": 97.0,
+      "global_x": 200.0,
+      "global_y": 97.31791615486145
+    },
+    {
+      "name": "U_MULT",
+      "type": "MULT_MACRO",
+      "predicted_x": 15.200000000000001,
+      "predicted_y": 199.0,
+      "global_x": 15.200239419937134,
+      "global_y": 200.0
+    },
+    {
+      "name": "U_DIV",
+      "type": "DIV_MACRO",
+      "predicted_x": 98.4,
+      "predicted_y": 199.0,
+      "global_x": 98.45303297042847,
+      "global_y": 200.0
+    },
+    {
+      "name": "for",
+      "type": "generate",
+      "predicted_x": 199.8,
+      "predicted_y": 191.0,
+      "global_x": 200.0,
+      "global_y": 191.58296585083008
+    }
+  ]
+}

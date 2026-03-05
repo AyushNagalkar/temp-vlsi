@@ -1,0 +1,17 @@
+VERSION 5.8 ;
+DIEAREA ( 0 0 ) ( 200 200 ) ;
+DESIGN user_design ;
+
+COMPONENTS 9 ;
+  - for generate + PLACED ( 0 1 ) N ;
+  - for generate + PLACED ( 97 1 ) N ;
+  - for generate + PLACED ( 199 1 ) N ;
+  - for generate + PLACED ( 0 91 ) N ;
+  - U_OR OR2_X1 + PLACED ( 100 99 ) N ;
+  - U_XOR XOR2_X1 + PLACED ( 199 97 ) N ;
+  - U_MULT MULT_MACRO + PLACED ( 15 199 ) N ;
+  - U_DIV DIV_MACRO + PLACED ( 98 199 ) N ;
+  - for generate + PLACED ( 199 191 ) N ;
+END COMPONENTS
+
+END DESIGN

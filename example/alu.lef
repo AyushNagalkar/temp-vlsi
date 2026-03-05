@@ -1,0 +1,188 @@
+VERSION 5.8 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+UNITS
+DATABASE MICRONS 1000 ;
+END UNITS
+
+SITE core
+SIZE 1 BY 1 ;
+CLASS CORE ;
+END core
+
+###################################################
+# STANDARD CELLS
+###################################################
+
+MACRO AND2_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 1.4 BY 2 ;
+  SYMMETRY X Y ;
+  SITE core ;
+
+  PIN A
+    DIRECTION INPUT ;
+    PORT
+      LAYER M1 ;
+      RECT 0.1 0.6 0.3 1.2 ;
+    END
+  END A
+
+  PIN B
+    DIRECTION INPUT ;
+    PORT
+      LAYER M1 ;
+      RECT 0.4 0.6 0.6 1.2 ;
+    END
+  END B
+
+  PIN Y
+    DIRECTION OUTPUT ;
+    PORT
+      LAYER M1 ;
+      RECT 1.0 0.6 1.3 1.2 ;
+    END
+  END Y
+
+END AND2_X1
+
+###################################################
+
+MACRO OR2_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 1.4 BY 2 ;
+  SITE core ;
+END OR2_X1
+
+###################################################
+
+MACRO XOR2_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 1.6 BY 2 ;
+  SITE core ;
+END XOR2_X1
+
+###################################################
+
+MACRO INV_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 1.0 BY 2 ;
+  SITE core ;
+END INV_X1
+
+###################################################
+
+MACRO FA_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 2.5 BY 2 ;
+  SITE core ;
+
+  PIN A
+    DIRECTION INPUT ;
+  END A
+
+  PIN B
+    DIRECTION INPUT ;
+  END B
+
+  PIN CI
+    DIRECTION INPUT ;
+  END CI
+
+  PIN S
+    DIRECTION OUTPUT ;
+  END S
+
+  PIN CO
+    DIRECTION OUTPUT ;
+  END CO
+
+END FA_X1
+
+###################################################
+# LARGE MACROS
+###################################################
+
+MACRO MULT_MACRO
+  CLASS BLOCK ;
+  ORIGIN 0 0 ;
+  SIZE 40 BY 40 ;
+  SYMMETRY X Y ;
+
+  PIN A
+    DIRECTION INPUT ;
+  END A
+
+  PIN B
+    DIRECTION INPUT ;
+  END B
+
+  PIN P
+    DIRECTION OUTPUT ;
+  END P
+
+END MULT_MACRO
+
+###################################################
+
+MACRO DIV_MACRO
+  CLASS BLOCK ;
+  ORIGIN 0 0 ;
+  SIZE 50 BY 50 ;
+  SYMMETRY X Y ;
+
+  PIN A
+    DIRECTION INPUT ;
+  END A
+
+  PIN B
+    DIRECTION INPUT ;
+  END B
+
+  PIN Q
+    DIRECTION OUTPUT ;
+  END Q
+
+END DIV_MACRO
+
+###################################################
+
+MACRO MUX4_X1
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  SIZE 2.2 BY 2 ;
+  SITE core ;
+
+  PIN A
+    DIRECTION INPUT ;
+  END A
+
+  PIN B
+    DIRECTION INPUT ;
+  END B
+
+  PIN C
+    DIRECTION INPUT ;
+  END C
+
+  PIN D
+    DIRECTION INPUT ;
+  END D
+
+  PIN S
+    DIRECTION INPUT ;
+  END S
+
+  PIN Y
+    DIRECTION OUTPUT ;
+  END Y
+
+END MUX4_X1
+
+END LIBRARY
